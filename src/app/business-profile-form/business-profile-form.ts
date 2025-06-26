@@ -6,10 +6,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-business-profile-form',
+  standalone: true,
   imports: [
+    CommonModule,
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
@@ -22,5 +25,5 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   styleUrl: './business-profile-form.css'
 })
 export class BusinessProfileForm {
-
+  businessName: string = '';
 }

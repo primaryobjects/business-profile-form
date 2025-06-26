@@ -1,6 +1,6 @@
 # Business Application Form Demo
 
-This project is a real-world demonstration of a business application form built with Angular. It showcases advanced CSS styling techniques and Angular Material UI components to create a modern, responsive, and user-friendly form experience.
+This project is a real-world demonstration of a business application form built with Angular 20. It showcases advanced CSS styling techniques and Angular Material UI components to create a modern, responsive, and user-friendly form experience.
 
 ## Project Overview
 
@@ -48,3 +48,7 @@ This project is intended as a reference for developers looking to implement real
 ## License
 
 MIT
+
+## Author
+
+Kory Becker http://www.primaryobjects.com/kory-becker

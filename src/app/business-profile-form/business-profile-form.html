@@ -2,7 +2,26 @@
     <h2>Business User Profile</h2>
     <mat-form-field appearance="outline">
       <mat-label>Business Name</mat-label>
-      <input matInput id="businessName" name="businessName" type="text" required />
+      <input
+        matInput
+        id="businessName"
+        name="businessName"
+        type="text"
+        required
+        minlength="4"
+        maxlength="40"
+        #businessNameInput="ngModel"
+        [(ngModel)]="businessName"
+      />
+      <mat-error *ngIf="businessNameInput.errors?.['required']">
+        Business Name is required
+      </mat-error>
+      <mat-error *ngIf="businessNameInput.errors?.['minlength']">
+        Business Name must be at least 4 characters
+      </mat-error>
+      <mat-error *ngIf="businessNameInput.errors?.['maxlength']">
+        Business Name cannot exceed 40 characters
+      </mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Contact Name</mat-label>
