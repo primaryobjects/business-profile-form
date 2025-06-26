@@ -66,14 +66,16 @@
     min-height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
     padding: 1rem;
     box-sizing: inherit;
     position: relative;
   }
 
   .angular-logo {
-    max-width: 9.2rem;
+    max-width: 12.2rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .content {
@@ -163,20 +165,6 @@
 
   .social-links a:hover svg path {
     fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
-    }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
-    }
   }
 </style>
 
