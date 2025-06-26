@@ -2,6 +2,8 @@
 
 A business application form built with Angular 20. It showcases advanced CSS styling techniques and Angular Material UI components to create a modern, responsive, and user-friendly form.
 
+![Angular 20 Business Profile Form](screenshot.png)
+
 ## Project Overview
 
 - **Purpose:**
@@ -12,6 +14,7 @@ A business application form built with Angular 20. It showcases advanced CSS sty
   - Material Design input fields, radio buttons, checkboxes, and dropdowns.
   - Custom CSS for spacing, width, and visual polish.
   - Demonstrates best practices for structuring Angular components and styles.
+  - Client-side validation of form field.
 
 ## Getting Started
 
