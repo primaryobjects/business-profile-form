@@ -1,14 +1,11 @@
 .home-component {
-    width: 100%;
-    max-width: 800px;
-    min-width: 300px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-    padding: 32px;
-    margin: 0 2vw;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  margin: 40px 0;
+  padding: 0;
 }
 
-.home-component.full-width {
-    max-width: 100%;
+app-business-profile-form {
+  width: 100%;
 }

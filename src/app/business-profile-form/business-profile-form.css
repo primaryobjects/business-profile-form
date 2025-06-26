@@ -1,0 +1,45 @@
+.app-business-profile-form {
+  width: 100%;
+  max-width: 800px;
+  min-width: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.app-business-profile-form.full-width {
+  max-width: 95vw;
+}
+
+.app-business-profile-form h2 {
+  text-align:center;
+  margin-bottom: 8px;
+}
+
+.app-business-profile-form label {
+  font-weight: 500;
+}
+
+.app-business-profile-form .checkbox-group {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+/* Responsive: reduce padding and max-width on small screens */
+@media (max-width: 800px) {
+  .app-business-profile-form {
+    max-width: 90vw;
+    padding: 16px;
+  }
+  .app-business-profile-form.full-width {
+    max-width: 90vw;
+  }
+}
