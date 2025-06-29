@@ -1,0 +1,50 @@
+# Node (Angular client)
+client/node_modules/
+client/dist/
+client/.angular/
+client/.env
+client/.env.*
+
+# Angular/Vite cache
+client/.vite/
+client/.cache/
+client/.eslintcache
+
+# VS Code
+.vscode/
+.history/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ASP.NET Core (server)
+server/bin/
+server/obj/
+server/.vs/
+server/.user
+server/.idea/
+server/.vscode/
+
+# User secrets
+server/appsettings.Development.json
+server/appsettings.Local.json
+
+# Build output
+*.dll
+*.exe
+*.pdb
+
+# Others
+*.swp
+*.swo
+*.tmp
+*.bak
+
+# Environment files
