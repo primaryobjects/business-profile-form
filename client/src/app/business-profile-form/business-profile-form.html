@@ -1,0 +1,87 @@
+<form
+  #profileForm="ngForm"
+  (ngSubmit)="onSubmit()"
+  class="app-business-profile-form full-width"
+  autocomplete="off"
+>
+  <h2>Business User Profile</h2>
+  <mat-form-field appearance="outline">
+    <mat-label>Business Name</mat-label>
+    <input
+      matInput
+      name="businessName"
+      [(ngModel)]="contact.businessName"
+      required
+      minlength="4"
+      maxlength="40"
+      #businessNameInput="ngModel"
+    />
+    <mat-error *ngIf="businessNameInput.errors?.['required']">
+      Business Name is required
+    </mat-error>
+    <mat-error *ngIf="businessNameInput.errors?.['minlength']">
+      Business Name must be at least 4 characters
+    </mat-error>
+    <mat-error *ngIf="businessNameInput.errors?.['maxlength']">
+      Business Name cannot exceed 40 characters
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Contact Name</mat-label>
+    <input matInput name="contactName" [(ngModel)]="contact.contactName" required />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput name="email" [(ngModel)]="contact.email" required type="email" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Phone Number</mat-label>
+    <input matInput id="phone" name="phone" type="tel" [(ngModel)]="contact.phone" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Industry</mat-label>
+    <input matInput id="industry" name="industry" type="text" [(ngModel)]="contact.industry" />
+  </mat-form-field>
+
+  <!-- Dropdown -->
+  <mat-form-field appearance="outline">
+    <mat-label>Business Size</mat-label>
+    <mat-select name="businessSize" [(ngModel)]="contact.businessSize" required>
+      <mat-option value="small">Small (1-10)</mat-option>
+      <mat-option value="medium">Medium (11-100)</mat-option>
+      <mat-option value="large">Large (100+)</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Radio Buttons -->
+  <label>Preferred Contact Method</label>
+  <mat-radio-group name="contactMethod" class="checkbox-group" [(ngModel)]="contact.contactMethod">
+    <mat-radio-button value="email">Email</mat-radio-button>
+    <mat-radio-button value="phone">Phone</mat-radio-button>
+    <mat-radio-button value="nopreference">No Preference</mat-radio-button>
+  </mat-radio-group>
+
+  <!-- Checkboxes -->
+  <label>Services Interested In</label>
+  <div class="checkbox-group">
+    <mat-checkbox
+      name="services"
+      [checked]="contact.services.includes('consulting')"
+      (change)="onServiceChange('consulting', $event.checked)"
+    >Consulting</mat-checkbox>
+    <mat-checkbox
+      name="services"
+      [checked]="contact.services.includes('support')"
+      (change)="onServiceChange('support', $event.checked)"
+    >Support</mat-checkbox>
+    <mat-checkbox
+      name="services"
+      [checked]="contact.services.includes('training')"
+      (change)="onServiceChange('training', $event.checked)"
+    >Training</mat-checkbox>
+  </div>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="profileForm.invalid" style="margin-top: 16px;">
+    Submit
+  </button>
+</form>

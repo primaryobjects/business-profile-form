@@ -1,44 +1,76 @@
 # Business Application Form Demo
 
-A business application form built with Angular 20. It showcases advanced CSS styling techniques and Angular Material UI components to create a modern, responsive, and user-friendly form.
+A full-stack business application form demo with **Angular 20** (client) and **ASP.NET Core** (server).
+This project demonstrates a modern, responsive business profile form with Angular Material UI, advanced CSS, and robust **server-side validation**.
 
 ![Angular 20 Business Profile Form](screenshot.png)
+
+---
 
 ## Project Overview
 
 - **Purpose:**
-  To provide a practical example of a business user profile form, including text fields, dropdowns, radio buttons, and checkboxes, styled for clarity and usability.
+  - Provide a practical example of a business user profile form with real-world validation and full-stack integration.
 
 - **Features:**
-  - Responsive layout that adapts to different screen sizes.
-  - Material Design input fields, radio buttons, checkboxes, and dropdowns.
-  - Custom CSS for spacing, width, and visual polish.
-  - Demonstrates best practices for structuring Angular components and styles.
-  - Client-side validation of form field.
+  - Responsive Angular 20 client using Material Design components.
+  - Text fields, dropdowns, radio buttons, and checkboxes.
+  - Custom CSS for clean, maintainable, and responsive design.
+  - **Client-side validation** for required fields and input constraints.
+  - **Server-side validation** using ASP.NET Core data annotations and custom validation attributes.
+  - Clear error messages returned from the server for invalid submissions.
+  - Example of full-stack form handling and validation.
+
+---
 
 ## Getting Started
 
-### Development Server
+### Prerequisites
 
-To start the local development server, run:
+- Node.js & npm
+- .NET 8 SDK (or compatible)
+
+### Running the Client
 
 ```bash
+cd client
 ng serve
 ```
+Open your browser at [http://localhost:4200/](http://localhost:4200/).
 
-Then open your browser at [http://localhost:4200/](http://localhost:4200/).
-
-### Building the Project
-
-To build the project for production:
+### Running the Server
 
 ```bash
+cd server
+dotnet run
+```
+The API will be available at [http://localhost:5051/api/contact](http://localhost:5051/api/contact).
+
+---
+
+## Building the Project
+
+### Client
+
+```bash
+cd client
 ng build
 ```
 
+### Server
+
+```bash
+cd server
+dotnet build
+```
+
+---
+
 ## About
 
-This project is intended as a reference for developers looking to implement real-world forms with Angular 20 and Material UI, with a focus on clean, maintainable CSS and responsive design.
+This project is intended as a reference for developers implementing real-world forms with Angular and ASP.NET Core, demonstrating both client-side and server-side validation, clean CSS, and responsive UI.
+
+---
 
 ## License
 
@@ -46,4 +78,5 @@ MIT
 
 ## Author
 
-Kory Becker http://www.primaryobjects.com/kory-becker
+Kory Becker
+[http://www.primaryobjects.com/kory-becker](http://www.primaryobjects.com/kory-becker)
