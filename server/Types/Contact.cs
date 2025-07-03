@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using Server.Attributes;
+
 namespace Server.Types
 {
     public class Contact
@@ -16,9 +17,9 @@ namespace Server.Types
         public string? Phone { get; set; }
         public string? Industry { get; set; }
         public string? BusinessSize { get; set; }
-        [ValidContactMethod]
+        [ValidValues("email", "phone", "nopreference", "")]
         public string? ContactMethod { get; set; }
-        [ValidService]
+        [ValidValues("consulting", "support", "training")]
         public List<string> Services { get; set; } = [];
 
         public Contact()
