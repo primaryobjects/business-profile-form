@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  docker-monster:
+    image: ghcr.io/primaryobjects/business-profile-form:latest
+    ports:
+      - "8080:80"
+    environment:
+      ENV_VAR_NAME: value

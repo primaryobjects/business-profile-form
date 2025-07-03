@@ -1,42 +1,81 @@
 {
-  // For more information, visit: https://go.microsoft.com/fwlink/?LinkId=733558
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "type": "npm",
-      "script": "start",
-      "isBackground": true,
-      "problemMatcher": {
-        "owner": "typescript",
-        "pattern": "$tsc",
-        "background": {
-          "activeOnStart": true,
-          "beginsPattern": {
-            "regexp": "(.*?)"
-          },
-          "endsPattern": {
-            "regexp": "bundle generation complete"
-          }
-        }
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "dotnet build",
+        "type": "shell",
+        "command": "dotnet build",
+        "problemMatcher": "$msCompile"
+      },
+      {
+        "label": "dotnet publish",
+        "type": "shell",
+        "command": "dotnet publish -c Release -o ./publish",
+        "problemMatcher": "$msCompile",
+        "dependsOn": "dotnet build"
+      },
+      {
+        "label": "copy client files",
+        "type": "shell",
+        "command": "cp -r Client/dist/client/browser/*.* ./publish/wwwroot",
+        "problemMatcher": [],
+        "dependsOn": "ng build"
+      },
+      {
+        "label": "ng build",
+        "type": "shell",
+        "command": "ng build",
+        "options": {
+          "cwd": "${workspaceFolder}/Client"
+        },
+        "problemMatcher": [],
+        "dependsOn": "dotnet publish"
+      },
+      {
+        "label": "build-and-publish",
+        "dependsOn": [
+          "dotnet build",
+          "dotnet publish",
+          "ng build",
+          "copy client files"
+        ]
+      },
+      {
+        "label": "docker-build",
+        "type": "shell",
+        "command": "docker build -t business-form .",
+        "problemMatcher": []
+      },
+      {
+        "label": "docker-run",
+        "type": "shell",
+        "command": "docker run -d -p 8080:80 --name business-form business-form",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": [],
+        "dependsOn": "docker-build"
+      },
+      {
+        "label": "docker-ghcr-login",
+        "type": "shell",
+        "command": "docker login --username <USERNAME> --password <PERSONAL_ACCESS_TOKEN> ghcr.io",
+        "problemMatcher": []
+      },
+      {
+        "label": "docker-ghcr-build",
+        "type": "shell",
+        "command": "docker build -t ghcr.io/primaryobjects/business-profile-form:latest .",
+        "problemMatcher": [],
+        "dependsOn": "docker-ghcr-login"
+      },
+      {
+        "label": "docker-ghcr-push",
+        "type": "shell",
+        "command": "docker push ghcr.io/primaryobjects/business-profile-form:latest",
+        "problemMatcher": [],
+        "dependsOn": "docker-ghcr-build"
       }
-    },
-    {
-      "type": "npm",
-      "script": "test",
-      "isBackground": true,
-      "problemMatcher": {
-        "owner": "typescript",
-        "pattern": "$tsc",
-        "background": {
-          "activeOnStart": true,
-          "beginsPattern": {
-            "regexp": "(.*?)"
-          },
-          "endsPattern": {
-            "regexp": "bundle generation complete"
-          }
-        }
-      }
-    }
-  ]
-}
+    ]
+  }
