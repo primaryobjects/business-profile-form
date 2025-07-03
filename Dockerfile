@@ -7,7 +7,7 @@ COPY client/. .
 RUN npm run build --prod
 
 # Stage 2: Build the ASP.NET Core API
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS service-build
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS service-build
 WORKDIR /app/service
 COPY server/*.csproj ./
 RUN dotnet restore
