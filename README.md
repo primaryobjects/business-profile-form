@@ -64,6 +64,24 @@ cd server
 dotnet build
 ```
 
+## Execution Flowchart
+
+```mermaid
+flowchart TD
+    A[User fills out Business Profile Form] --> B[Client-side Validation]
+    B -->|Valid| C[HTTP POST /api/contact]
+    B -->|Invalid| Z[Show Validation Errors]
+    C --> D[ASP.NET Endpoint ContactController]
+    D --> E[Server-side Validation .NET Data Annotations & Custom Attributes]
+    E -->|Valid| F[Process Data, Save to DB, Send Email]
+    E -->|Invalid| Y[Return Validation Errors]
+    F --> G[Return Success Response]
+    Y --> H[Client Receives Error Response]
+    G --> I[Client Receives Success Response]
+    H --> J[Show Server Validation Errors]
+    I --> K[Show Success Message]
+```
+
 ---
 
 ## About
